@@ -1,0 +1,22 @@
+{
+  "name": "AngularMaterialDialog",
+  "version": "0.0.0",
+  "authors": [
+    "Jonathan Taylor <jonathan.taylor@dsl.pipex.com>"
+  ],
+  "description": "My first dabble at using angular material",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "a0-angular-storage": "~0.0.6",
+    "angular-material": "~0.4.2"
+  }
+}

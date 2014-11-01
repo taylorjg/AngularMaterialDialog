@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>[data-ng-cloak] { display: none; }</style>
+</head>
+    <body data-ng-app="NameListApp">
+
+    <md-content data-ng-controller="NameListController" layout="vertical" layout-padding="">
+
+        <div flex="80" offset="10">
+            <table>
+                <thead>
+                    <td>Id</td>
+                    <td>First name</td>
+                    <td>Last name</td>
+                    <td>Email address</td>
+                    <td>Actions</td>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="item in items" data-ng-cloak="">
+                        <td>{{item.id}}</td>
+                        <td>{{item.firstName}}</td>
+                        <td>{{item.lastName}}</td>
+                        <td>{{item.email}}</td>
+                        <td>
+                            <md-button class="md-button-raised md-button-colored" data-ng-click="onEditItem($event, item)">Edit</md-button>
+                            <md-button class="md-button-raised md-button-colored" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div flex="80" offset="10">
+            <md-button class="md-button-raised md-button-colored" data-ng-click="onAddItem($event)">Add</md-button>
+        </div>
+
+    </md-content>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/NameListController.js"></script>
+    <script src="scripts/controllers/ItemDialogController.js"></script>
+</body>
+</html>
