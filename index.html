@@ -20,7 +20,7 @@
                     <td>Actions</td>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in items" data-ng-cloak="">
+                    <tr data-ng-repeat="item in nameListModel.items" data-ng-cloak="">
                         <td>{{item.id}}</td>
                         <td>{{item.firstName}}</td>
                         <td>{{item.lastName}}</td>
@@ -49,5 +49,8 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/NameListController.js"></script>
     <script src="scripts/controllers/ItemDialogController.js"></script>
+    <script src="scripts/services/NameListService.js"></script>
+    <script src="scripts/models/NameListModel.js"></script>
+    <script src="scripts/models/ItemDialogModel.js"></script>
 </body>
 </html>
