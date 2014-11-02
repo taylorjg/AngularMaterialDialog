@@ -8,44 +8,29 @@
     angular.module("NameListApp")
         .controller(
             "NameListController",
-            ["$scope", "$mdDialog", "NameListPersistenceService", function ($scope, $mdDialog, NameListPersistenceService) {
+            ["$scope", "NameListPersistenceService", "ItemDialogService", function ($scope, NameListPersistenceService, ItemDialogService) {
 
-                NameListPersistenceService.getItems().then(function(items) {
+                NameListPersistenceService.getItems().then(function (items) {
                     $scope.nameListModel = window.nameListApp.models.nameListModel(items);
                 });
 
                 $scope.onAddItem = function (event) {
-                    $mdDialog.show({
-                        targetEvent: event,
-                        templateUrl: "templates/itemDialog.html",
-                        controller: "ItemDialogController",
-                        locals: { item: null }
-                    }).then(
-                        function success(item) {
-                            $scope.nameListModel.addItem(item);
-                            NameListPersistenceService.saveItems($scope.nameListModel.items);
-                        }
-                    );
+                    ItemDialogService.addItem(event).then(function success(item) {
+                        NameListPersistenceService.saveItems($scope.nameListModel.addItem(item));
+                    });
                 };
 
                 $scope.onEditItem = function (event, item) {
-                    $mdDialog.show({
-                        targetEvent: event,
-                        templateUrl: "templates/itemDialog.html",
-                        controller: "ItemDialogController",
-                        locals: { item: item }
-                    }).then(
+                    ItemDialogService.editItem(event, item).then(
                         function success(item) {
-                            $scope.nameListModel.replaceItem(item);
-                            NameListPersistenceService.saveItems($scope.nameListModel.items);
+                            NameListPersistenceService.saveItems($scope.nameListModel.replaceItem(item));
                         }
                     );
                 };
 
                 $scope.onDeleteItem = function (ev, item) {
                     // TODO: display a confirmation dialog...
-                    $scope.nameListModel.removeItem(item);
-                    NameListPersistenceService.saveItems($scope.nameListModel.items);
+                    NameListPersistenceService.saveItems($scope.nameListModel.removeItem(item));
                 };
             }]);
 }());

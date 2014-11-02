@@ -39,14 +39,17 @@
             addItem: function(item) {
                 item.id = _nextId++;
                 _items.push(item);
+                return _items;
             },
 
             removeItem: function(item) {
                 _replaceItem(item.id, null);
+                return _items;
             },
 
             replaceItem: function(item) {
                 _replaceItem(item.id, item);
+                return _items;
             }
         };
     };
