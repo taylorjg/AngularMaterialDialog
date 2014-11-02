@@ -1,7 +1,7 @@
 /**
  * Created by jonathantaylor on 01/11/2014.
  */
-(function() {
+(function () {
     "use strict";
     angular.module("NameListApp", ["ngMaterial", "angular-storage"]);
 }());

@@ -1,16 +1,16 @@
 /**
  * Created by jonathantaylor on 02/11/2014.
  */
-(function() {
+(function () {
 
     "use strict";
 
     angular.module("NameListApp")
         .service(
             "ItemDialogService",
-            ["$mdDialog", function($mdDialog) {
+            ["$mdDialog", function ($mdDialog) {
 
-                var _show = function(event, item) {
+                var _show = function (event, item) {
                     return $mdDialog.show({
                         targetEvent: event,
                         templateUrl: "templates/itemDialog.html",
@@ -21,11 +21,11 @@
                     });
                 };
 
-                this.addItem = function(event) {
+                this.showAddItemDialog = function (event) {
                     return _show(event, null);
                 };
 
-                this.editItem = function(event, item) {
+                this.showEditItemDialog = function (event, item) {
                     return _show(event, item);
                 };
             }]

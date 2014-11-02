@@ -1,7 +1,7 @@
 /**
  * Created by jonathantaylor on 01/11/2014.
  */
-(function() {
+(function () {
 
     "use strict";
 
@@ -12,11 +12,11 @@
 
                 $scope.itemDialogModel = window.nameListApp.models.itemDialogModel(item);
 
-                $scope.onCancel = function() {
+                $scope.onCancel = function () {
                     $mdDialog.cancel();
                 };
 
-                $scope.onOk = function() {
+                $scope.onOk = function () {
                     $mdDialog.hide($scope.itemDialogModel.item);
                 };
             }]);

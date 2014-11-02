@@ -1,14 +1,14 @@
 /**
  * Created by jonathantaylor on 02/11/2014.
  */
-(function() {
+(function () {
 
     "use strict";
 
     window.nameListApp = window.nameListApp || {};
     window.nameListApp.models = window.nameListApp.models || {};
 
-    window.nameListApp.models.nameListModel = function(items) {
+    window.nameListApp.models.nameListModel = function (items) {
 
         var _calculateInitialValueOfNextId = function (items) {
             var highestId = 0;
@@ -20,7 +20,7 @@
             return highestId + 1;
         };
 
-        var _replaceItem = function(id, replacement) {
+        var _replaceItem = function (id, replacement) {
             for (var i = 0; i < _items.length; i++) {
                 if (_items[i].id === id) {
                     (replacement) ? _items.splice(i, 1, replacement) : _items.splice(i, 1);
@@ -36,19 +36,19 @@
 
             items: _items,
 
-            addItem: function(item) {
+            addItem: function (item) {
                 item.id = _nextId++;
                 _items.push(item);
                 return _items;
             },
 
-            removeItem: function(item) {
-                _replaceItem(item.id, null);
+            editItem: function (item) {
+                _replaceItem(item.id, item);
                 return _items;
             },
 
-            replaceItem: function(item) {
-                _replaceItem(item.id, item);
+            deleteItem: function (item) {
+                _replaceItem(item.id, null);
                 return _items;
             }
         };

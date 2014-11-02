@@ -15,22 +15,20 @@
                 });
 
                 $scope.onAddItem = function (event) {
-                    ItemDialogService.addItem(event).then(function success(item) {
+                    ItemDialogService.showAddItemDialog(event).then(function (item) {
                         NameListPersistenceService.saveItems($scope.nameListModel.addItem(item));
                     });
                 };
 
                 $scope.onEditItem = function (event, item) {
-                    ItemDialogService.editItem(event, item).then(
-                        function success(item) {
-                            NameListPersistenceService.saveItems($scope.nameListModel.replaceItem(item));
-                        }
-                    );
+                    ItemDialogService.showEditItemDialog(event, item).then(function (item) {
+                        NameListPersistenceService.saveItems($scope.nameListModel.editItem(item));
+                    });
                 };
 
                 $scope.onDeleteItem = function (ev, item) {
                     // TODO: display a confirmation dialog...
-                    NameListPersistenceService.saveItems($scope.nameListModel.removeItem(item));
+                    NameListPersistenceService.saveItems($scope.nameListModel.deleteItem(item));
                 };
             }]);
 }());
