@@ -8,9 +8,11 @@
     angular.module("NameListApp")
         .controller(
             "NameListController",
-            ["$scope", "$mdDialog", "nameListService", function ($scope, $mdDialog, nameListService) {
+            ["$scope", "$mdDialog", "NameListPersistenceService", function ($scope, $mdDialog, NameListPersistenceService) {
 
-                $scope.nameListModel = window.nameListApp.models.nameListModel(nameListService.getItems());
+                NameListPersistenceService.getItems().then(function(items) {
+                    $scope.nameListModel = window.nameListApp.models.nameListModel(items);
+                });
 
                 $scope.onAddItem = function (event) {
                     $mdDialog.show({
@@ -21,7 +23,7 @@
                     }).then(
                         function success(item) {
                             $scope.nameListModel.addItem(item);
-                            nameListService.saveItems($scope.nameListModel.items);
+                            NameListPersistenceService.saveItems($scope.nameListModel.items);
                         }
                     );
                 };
@@ -35,7 +37,7 @@
                     }).then(
                         function success(item) {
                             $scope.nameListModel.replaceItem(item);
-                            nameListService.saveItems($scope.nameListModel.items);
+                            NameListPersistenceService.saveItems($scope.nameListModel.items);
                         }
                     );
                 };
@@ -43,7 +45,7 @@
                 $scope.onDeleteItem = function (ev, item) {
                     // TODO: display a confirmation dialog...
                     $scope.nameListModel.removeItem(item);
-                    nameListService.saveItems($scope.nameListModel.items);
+                    NameListPersistenceService.saveItems($scope.nameListModel.items);
                 };
             }]);
 }());

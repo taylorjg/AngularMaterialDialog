@@ -6,7 +6,7 @@
     "use strict";
 
     angular.module("NameListApp")
-        .service("nameListService", ["$timeout", "store", function($timeout, store) {
+        .service("NameListPersistenceService", ["$timeout", "$q", "store", function($timeout, $q, store) {
 
             var STORE_KEY_ITEMS = "items";
 
@@ -26,15 +26,19 @@
             ];
 
             this.getItems = function() {
-                return store.get(STORE_KEY_ITEMS) || DEFAULT_ITEMS;
+                var items = store.get(STORE_KEY_ITEMS) || DEFAULT_ITEMS;
+                return $q.when(items);
             };
 
             this.saveItems = function (items) {
+                var deferred = $q.defer();
                 $timeout(function() {
                     // We do this in a timeout function to allow the digest loop to run
                     // and update the $$hashKey properties of any recently added items.
                     store.set(STORE_KEY_ITEMS, items);
+                    deferred.resolve(items);
                 });
+                return deferred.promise;
             };
 
         }]);
