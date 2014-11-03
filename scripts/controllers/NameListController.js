@@ -21,8 +21,9 @@
                 };
 
                 $scope.onEditItem = function (event, item) {
-                    ItemDialogService.showEditItemDialog(event, item).then(function (item) {
-                        NameListPersistenceService.saveItems($scope.nameListModel.editItem(item));
+                    var itemCopy = angular.copy(item);
+                    ItemDialogService.showEditItemDialog(event, itemCopy).then(function () {
+                        NameListPersistenceService.saveItems($scope.nameListModel.editItem(itemCopy));
                     });
                 };
 
