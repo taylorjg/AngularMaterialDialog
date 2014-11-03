@@ -10,7 +10,7 @@
 
     <md-content data-ng-controller="NameListController" layout="vertical" layout-padding="">
 
-        <div flex="80" offset="10">
+        <div>
             <table>
                 <thead>
                     <td>Id</td>
@@ -26,16 +26,16 @@
                         <td>{{item.lastName}}</td>
                         <td>{{item.email}}</td>
                         <td>
-                            <md-button class="md-button-raised md-button-colored" data-ng-click="onEditItem($event, item)">Edit</md-button>
-                            <md-button class="md-button-raised md-button-colored" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
+                            <md-button aria-label="edit" class="md-raised md-primary" data-ng-click="onEditItem($event, item)">Edit</md-button>
+                            <md-button aria-label="delete" class="md-raised md-warn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div flex="80" offset="10">
-            <md-button class="md-button-raised md-button-colored" data-ng-click="onAddItem($event)">Add</md-button>
+        <div>
+            <md-button aria-label="add" class="md-raised md-primary" data-ng-click="onAddItem($event)">Add</md-button>
         </div>
 
     </md-content>

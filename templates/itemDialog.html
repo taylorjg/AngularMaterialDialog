@@ -1,20 +1,14 @@
-<md-dialog style="width: 500px">
+<md-dialog id="itemDialog">
     <md-subheader>{{itemDialogModel.title}}</md-subheader>
     <md-content class="dialog-content">
         <form>
-            <!--
-                Here, I am explicitly applying tabindex="-1".
-                A Later version of angular-material.js includes this attribute in the template
-                associated with the md-text-float directive.
-                Without it, you need to press the TAB key twice to navigate from one text field to the next.
-             -->
-            <md-text-float tabindex="-1" label="FirstName" data-ng-model="itemDialogModel.item.firstName"></md-text-float>
-            <md-text-float tabindex="-1" label="LastName" data-ng-model="itemDialogModel.item.lastName"></md-text-float>
-            <md-text-float tabindex="-1" label="Email" data-ng-model="itemDialogModel.item.email" type="email" class="long"></md-text-float>
+            <md-text-float label="FirstName" data-ng-model="itemDialogModel.item.firstName"></md-text-float>
+            <md-text-float label="LastName" data-ng-model="itemDialogModel.item.lastName"></md-text-float>
+            <md-text-float label="Email" data-ng-model="itemDialogModel.item.email" type="email" class="long"></md-text-float>
         </form>
         <div class="dialog-actions">
-            <md-button class="md-button-raised md-button-colored" data-ng-click="onOk()">OK</md-button>
-            <md-button class="md-button-raised md-button-colored" data-ng-click="onCancel()">CANCEL</md-button>
+            <md-button aria-label="ok" class="md-raised md-primary" data-ng-click="onOk()">OK</md-button>
+            <md-button aria-label="cancel" class="md-raised" data-ng-click="onCancel()">CANCEL</md-button>
         </div>
     </md-content>
 </md-dialog>

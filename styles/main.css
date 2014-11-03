@@ -1,3 +1,7 @@
 .long > input {
     width: 100%;
 }
+
+#itemDialog {
+    width: 500px;
+}
