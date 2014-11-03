@@ -14,10 +14,12 @@
             <md-list>
                 <md-item data-ng-repeat="item in nameListModel.items" data-ng-cloak="">
                     <md-item-content>
+                        <div class="md-tile-left">
+                            <h2>{{item.id}}</h2>
+                        </div>
                         <div class="md-tile-content">
                             <h4>Name: {{item.lastName}}, {{item.firstName}}</h4>
                             <h4>Email: {{item.email}}</h4>
-                            <h4>Id: {{item.id}}</h4>
                             <md-button aria-label="edit" class="md-raised md-primary" data-ng-click="onEditItem($event, item)">Edit</md-button>
                             <md-button aria-label="delete" class="md-raised md-warn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
                         </div>
