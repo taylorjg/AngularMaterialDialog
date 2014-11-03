@@ -12,12 +12,12 @@
 
                 $scope.itemDialogModel = window.nameListApp.models.itemDialogModel(item);
 
-                $scope.onCancel = function () {
-                    $mdDialog.cancel();
-                };
-
                 $scope.onOk = function () {
                     $mdDialog.hide($scope.itemDialogModel.item);
+                };
+
+                $scope.onCancel = function () {
+                    $mdDialog.cancel();
                 };
             }]);
 }());
