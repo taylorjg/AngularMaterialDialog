@@ -10,7 +10,7 @@
             "ItemDialogController",
             ["$scope", "$interpolate", "$mdDialog", "item", function ($scope, $interpolate, $mdDialog, item) {
 
-                $scope.itemDialogModel = window.nameListApp.models.itemDialogModel(item);
+                $scope.itemDialogModel = window.nameListApp.models.itemDialogModel(angular.copy(item));
 
                 $scope.onOk = function () {
                     $mdDialog.hide($scope.itemDialogModel.item);
