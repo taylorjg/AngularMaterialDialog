@@ -11,27 +11,19 @@
     <md-content data-ng-controller="NameListController" layout="vertical" layout-padding="">
 
         <div>
-            <table>
-                <thead>
-                    <td>Id</td>
-                    <td>First name</td>
-                    <td>Last name</td>
-                    <td>Email address</td>
-                    <td>Actions</td>
-                </thead>
-                <tbody>
-                    <tr data-ng-repeat="item in nameListModel.items" data-ng-cloak="">
-                        <td>{{item.id}}</td>
-                        <td>{{item.firstName}}</td>
-                        <td>{{item.lastName}}</td>
-                        <td>{{item.email}}</td>
-                        <td>
+            <md-list>
+                <md-item data-ng-repeat="item in nameListModel.items" data-ng-cloak="">
+                    <md-item-content>
+                        <div class="md-tile-content">
+                            <h4>Name: {{item.lastName}}, {{item.firstName}}</h4>
+                            <h4>Email: {{item.email}}</h4>
+                            <h4>Id: {{item.id}}</h4>
                             <md-button aria-label="edit" class="md-raised md-primary" data-ng-click="onEditItem($event, item)">Edit</md-button>
                             <md-button aria-label="delete" class="md-raised md-warn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
         </div>
 
         <div>

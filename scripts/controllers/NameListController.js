@@ -27,7 +27,7 @@
                 };
 
                 $scope.onDeleteItem = function (event, item) {
-                    var title = "Delete Item";
+                    var title = "Delete Item " + item.id;
                     var text = "Are you sure you want to delete item " + item.id + "?";
                     ConfirmationDialogService.showConfirmationDialog(event, title, text).then(function() {
                         NameListPersistenceService.saveItems($scope.nameListModel.deleteItem(item));
