@@ -8,7 +8,7 @@
     angular.module("NameListApp")
         .controller(
             "NameListController",
-            ["$scope", "NameListPersistenceService", "ItemDialogService", "ConfirmationDialogService", function ($scope, NameListPersistenceService, ItemDialogService, ConfirmationDialogService) {
+            ["$scope", "$mdToast", "NameListPersistenceService", "ItemDialogService", "ConfirmationDialogService", "NotificationService", function ($scope, $mdToast, NameListPersistenceService, ItemDialogService, ConfirmationDialogService, NotificationService) {
 
                 NameListPersistenceService.getItems().then(function (items) {
                     $scope.nameListModel = window.nameListApp.models.nameListModel(items);
@@ -30,7 +30,9 @@
                     var title = "Delete Item " + item.id;
                     var text = "Are you sure you want to delete item " + item.id + "?";
                     ConfirmationDialogService.showConfirmationDialog(event, title, text).then(function() {
-                        NameListPersistenceService.saveItems($scope.nameListModel.deleteItem(item));
+                        NameListPersistenceService.saveItems($scope.nameListModel.deleteItem(item)).then(function() {
+                            NotificationService.showDeletedItemNotification(item);
+                        });
                     });
                 };
             }]);
