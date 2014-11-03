@@ -15,15 +15,33 @@
                 var DEFAULT_ITEMS = [
                     {
                         id: 1,
-                        firstName: "firstname1",
-                        lastName: "lastname1",
-                        email: "firstname1.lastname1@gmail.com"
+                        firstName: "Chico",
+                        lastName: "Marx",
+                        email: "chico.marx@gmail.com"
                     },
                     {
                         id: 2,
-                        firstName: "firstname2",
-                        lastName: "lastname2",
-                        email: "firstname2.lastname2@gmail.com"
+                        firstName: "Harpo",
+                        lastName: "Marx",
+                        email: "harpo.marx@gmail.com"
+                    },
+                    {
+                        id: 3,
+                        firstName: "Groucho",
+                        lastName: "Marx",
+                        email: "groucho.marx@gmail.com"
+                    },
+                    {
+                        id: 4,
+                        firstName: "Gummo",
+                        lastName: "Marx",
+                        email: "gummo.marx@gmail.com"
+                    },
+                    {
+                        id: 5,
+                        firstName: "Zeppo",
+                        lastName: "Marx",
+                        email: "zeppo.marx@gmail.com"
                     }
                 ];
 

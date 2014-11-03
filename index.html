@@ -8,9 +8,9 @@
 </head>
     <body data-ng-app="NameListApp">
 
-    <md-content data-ng-controller="NameListController" layout="vertical" layout-padding="">
+    <md-content data-ng-controller="NameListController">
 
-        <div>
+        <div flex="60" offset="20" layout="horizontal" layout-padding="">
             <md-list>
                 <md-item data-ng-repeat="item in nameListModel.items" data-ng-cloak="">
                     <md-item-content>
@@ -18,7 +18,7 @@
                             <h2>{{item.id}}</h2>
                         </div>
                         <div class="md-tile-content">
-                            <h4>Name: {{item.lastName}}, {{item.firstName}}</h4>
+                            <h4>Name: {{item.firstName}} {{item.lastName}}</h4>
                             <h4>Email: {{item.email}}</h4>
                             <md-button aria-label="edit" class="md-raised md-primary" data-ng-click="onEditItem($event, item)">Edit</md-button>
                             <md-button aria-label="delete" class="md-raised md-warn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
@@ -28,9 +28,11 @@
             </md-list>
         </div>
 
-        <div>
-            <md-button aria-label="add" class="md-raised md-primary" data-ng-click="onAddItem($event)">Add</md-button>
-            <md-button aria-label="add" class="md-raised md-warn" data-ng-click="onReset($event)">Reset</md-button>
+        <div flex="60" offset="20" layout="horizontal" layout-padding="" layout-align="end">
+            <div>
+                <md-button aria-label="add" class="md-raised md-primary" data-ng-click="onAddItem($event)">Add</md-button>
+                <md-button aria-label="add" class="md-raised md-warn" data-ng-click="onReset($event)">Reset</md-button>
+            </div>
         </div>
 
     </md-content>
