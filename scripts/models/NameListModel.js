@@ -36,6 +36,13 @@
 
             items: _items,
 
+            resetItems: function(newItems) {
+                _items.splice(0, _items.length);
+                for (var i = 0; i < newItems.length; i++) {
+                    _items.push(newItems[i]);
+                }
+            },
+
             addItem: function (item) {
                 item.id = _nextId++;
                 _items.push(item);

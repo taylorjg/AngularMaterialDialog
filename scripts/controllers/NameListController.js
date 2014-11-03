@@ -35,5 +35,15 @@
                         });
                     });
                 };
+
+                $scope.onReset = function(event) {
+                    var title = "Confirm Reset";
+                    var text = "Are you sure want to reset the name list?";
+                    ConfirmationDialogService.showConfirmationDialog(event, title, text).then(function() {
+                        NameListPersistenceService.resetItems().then(function (items) {
+                            $scope.nameListModel.resetItems(items);
+                        });
+                    });
+                }
             }]);
 }());

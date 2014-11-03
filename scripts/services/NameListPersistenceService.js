@@ -43,5 +43,8 @@
                     return deferred.promise;
                 };
 
+                this.resetItems = function() {
+                    return this.saveItems(DEFAULT_ITEMS);
+                };
             }]);
 }());
