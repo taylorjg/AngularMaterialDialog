@@ -24,7 +24,7 @@
             var actual;
 
             spyOn(_store, "get").andCallFake(function() {
-                return undefined;
+                return null;
             });
 
             _service.getItems().then(function(items) {
