@@ -15,7 +15,7 @@
                 "bower_components/a0-angular-storage/dist/angular-storage.js",
                 "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-mocks.js",
                 "scripts/**/*.js",
-                "tests/unit/*.js"
+                "tests/unit/*Spec.js"
             ],
             exclude: [],
             reporters: ["progress"],
