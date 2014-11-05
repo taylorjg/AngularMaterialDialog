@@ -20,8 +20,8 @@
                         <div class="md-tile-content">
                             <h4>Name: {{item.firstName}} {{item.lastName}}</h4>
                             <h4>Email: {{item.email}}</h4>
-                            <md-button aria-label="edit" class="md-raised md-primary" data-ng-click="onEditItem($event, item)">Edit</md-button>
-                            <md-button aria-label="delete" class="md-raised md-warn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
+                            <md-button aria-label="edit" class="md-raised md-primary editBtn" data-ng-click="onEditItem($event, item)">Edit</md-button>
+                            <md-button aria-label="delete" class="md-raised md-warn deleteBtn" data-ng-click="onDeleteItem($event, item)">Delete</md-button>
                         </div>
                     </md-item-content>
                     <md-divider data-ng-if="!$last"></md-divider>
@@ -31,8 +31,8 @@
 
         <div flex="60" offset="20" layout="horizontal" layout-padding="" layout-align="end">
             <div>
-                <md-button aria-label="add" class="md-raised md-primary" data-ng-click="onAddItem($event)">Add</md-button>
-                <md-button aria-label="add" class="md-raised md-warn" data-ng-click="onReset($event)">Reset</md-button>
+                <md-button id="addItemBtn" aria-label="add" class="md-raised md-primary" data-ng-click="onAddItem($event)">Add</md-button>
+                <md-button id="resetBtn" aria-label="reset" class="md-raised md-warn" data-ng-click="onReset($event)">Reset</md-button>
             </div>
         </div>
 
