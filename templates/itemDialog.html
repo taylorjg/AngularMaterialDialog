@@ -1,5 +1,5 @@
 <md-dialog id="itemDialog">
-    <md-subheader class="md-primary">{{itemDialogModel.title}}</md-subheader>
+    <md-subheader class="md-primary">{{itemDialogModel.dialogTitle}}</md-subheader>
     <md-content class="md-content">
         <form novalidate="" name="itemDialogForm">
             <md-text-float label="FirstName" data-ng-model="itemDialogModel.item.firstName" required=""></md-text-float>
@@ -7,8 +7,8 @@
             <md-text-float label="Email" data-ng-model="itemDialogModel.item.email" required="" type="email" class="long"></md-text-float>
         </form>
         <div class="md-actions">
-            <md-button aria-label="ok" class="md-raised md-primary" data-ng-click="onOk()" data-ng-disabled="itemDialogForm.$invalid">OK</md-button>
-            <md-button aria-label="cancel" class="md-raised" data-ng-click="onCancel()">CANCEL</md-button>
+            <md-button id="okBtn" aria-label="ok" class="md-raised md-primary" data-ng-click="onOk()" data-ng-disabled="itemDialogForm.$invalid">OK</md-button>
+            <md-button id="cancelBtn" aria-label="cancel" class="md-raised" data-ng-click="onCancel()">CANCEL</md-button>
         </div>
     </md-content>
 </md-dialog>

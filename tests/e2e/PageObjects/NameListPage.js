@@ -5,15 +5,11 @@
 
     "use strict";
 
-    var _baseUrl = "http://localhost:63342/AngularMaterialDialog/index.html";
-
-    var _urlWithTestIdentifier = function (testIdentifier) {
-        return _baseUrl + "?e2etest=" + testIdentifier;
-    };
+    var BASE_URL = "http://localhost:63342/AngularMaterialDialog/index.html";
 
     var NameListPage = function() {
-        this.get = function (testIdentifier) {
-            browser.get(_urlWithTestIdentifier(testIdentifier));
+        this.get = function () {
+            browser.get(BASE_URL);
         };
         this.nameListItems = element.all(by.repeater("item in nameListModel.items"));
         this.addItemBtn = element(by.id("addItemBtn"));
@@ -21,10 +17,10 @@
         this.getItemElementByBinding = function(item, binding) {
             return item.element(by.binding(binding));
         };
-        this.getEditBtnForItemIndex = function (itemIndex) {
+        this.getEditBtnForItemWithIndex = function (itemIndex) {
             return this.nameListItems.get(itemIndex).element(by.css(".editBtn"));
         };
-        this.getDeleteBtnForItemIndex = function (itemIndex) {
+        this.getDeleteBtnForItemWithIndex = function (itemIndex) {
             return this.nameListItems.get(itemIndex).element(by.css(".deleteBtn"));
         };
     };

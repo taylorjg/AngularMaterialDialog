@@ -11,7 +11,7 @@
     window.nameListApp.models.itemDialogModel = function (item) {
         return {
             item: item || {},
-            title: item ? "Edit Item " + item.id : "Add Item"
+            dialogTitle: item ? "Edit Item " + item.id : "Add Item"
         };
     };
 
