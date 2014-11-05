@@ -19,7 +19,10 @@
         it("test2", function() {
             nameListPage.get(1);
             var item = nameListPage.nameListItems.get(2);
-            expect(nameListPage.getColumn2ForItem(item).getText()).toBe("Name: Groucho Marx");
+            expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("3");
+            expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("Groucho");
+            expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("Marx");
+            expect(nameListPage.getItemElementByBinding(item, "item.email").getText()).toBe("groucho.marx@gmail.com");
         });
 
         it("test3", function() {

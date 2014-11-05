@@ -18,17 +18,8 @@
         this.nameListItems = element.all(by.repeater("item in nameListModel.items"));
         this.addItemBtn = element(by.id("addItemBtn"));
         this.resetBtn = element(by.id("resetBtn"));
-        this.getColumn1ForItem = function(item) {
-            return item.element(by.binding("item.id"));
-        };
-        this.getColumn2ForItem = function (item) {
-            return item.element(by.binding("item.firstName"));
-        };
-        this.getColumn3ForItem = function (item) {
-            return item.element(by.binding("item.lastName"));
-        };
-        this.getColumn4ForItem = function (item) {
-            return item.element(by.binding("item.email"));
+        this.getItemElementByBinding = function(item, binding) {
+            return item.element(by.binding(binding));
         };
         this.getEditBtnForItemIndex = function (itemIndex) {
             return this.nameListItems.get(itemIndex).element(by.css(".editBtn"));
