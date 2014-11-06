@@ -53,7 +53,7 @@
             expect(confirmationDialogPage.dialog.isDisplayed()).toBe(true);
         });
 
-        iit("test7", function() {
+        it("test7", function() {
             nameListPage.get();
             nameListPage.getEditBtnForItemWithIndex(2).click();
             expect(itemDialogPage.firstName.getAttribute("value")).toBe("Groucho");
