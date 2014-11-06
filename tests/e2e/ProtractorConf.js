@@ -41,6 +41,7 @@
         onPrepare: function () {
 //            var disableNgAnimate = function () {
 //                angular.module("disableNgAnimate", []).run(function ($animate) {
+//                    console.log("$animate.enabled(false)");
 //                    $animate.enabled(false);
 //                });
 //            };

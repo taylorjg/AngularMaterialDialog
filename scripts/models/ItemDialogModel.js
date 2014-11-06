@@ -14,5 +14,4 @@
             dialogTitle: item ? "Edit Item " + item.id : "Add Item"
         };
     };
-
 }());
