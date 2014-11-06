@@ -23,6 +23,7 @@
         var _replaceItem = function (id, replacement) {
             for (var i = 0; i < _items.length; i++) {
                 if (_items[i].id === id) {
+                    // jshint expr: true
                     (replacement) ? _items.splice(i, 1, replacement) : _items.splice(i, 1);
                     break;
                 }

@@ -109,7 +109,7 @@
 
             it("list of items is loaded from local storage", function() {
                 nameListPage.get();
-                _setPersistedItems([{ id: 1, firstName: 'f1', lastName: 'l1', email: 'f1.l1@gmail.com'}]);
+                _setPersistedItems([{ id: 1, firstName: "f1", lastName: "l1", email: "f1.l1@gmail.com"}]);
                 browser.refresh();
                 expect(nameListPage.nameListItems.count()).toBe(1);
                 var item = nameListPage.nameListItems.get(0);
@@ -147,9 +147,9 @@
             it("item edited via the item dialog is updated in the list of items in local storage", function() {
                 nameListPage.get();
                 _setPersistedItems([
-                    { id: 1, firstName: 'f1', lastName: 'l1', email: 'f1.l1@gmail.com'},
-                    { id: 2, firstName: 'f2', lastName: 'l2', email: 'f2.l2@gmail.com'},
-                    { id: 3, firstName: 'f3', lastName: 'l3', email: 'f3.l3@gmail.com'}
+                    { id: 1, firstName: "f1", lastName: "l1", email: "f1.l1@gmail.com"},
+                    { id: 2, firstName: "f2", lastName: "l2", email: "f2.l2@gmail.com"},
+                    { id: 3, firstName: "f3", lastName: "l3", email: "f3.l3@gmail.com"}
                 ]);
                 browser.refresh();
                 nameListPage.getEditBtnForItemWithIndex(1).click();
@@ -168,9 +168,9 @@
             it("item deleted via the delete button is deleted from the list of items in local storage", function() {
                 nameListPage.get();
                 _setPersistedItems([
-                    { id: 1, firstName: 'f1', lastName: 'l1', email: 'f1.l1@gmail.com'},
-                    { id: 2, firstName: 'f2', lastName: 'l2', email: 'f2.l2@gmail.com'},
-                    { id: 3, firstName: 'f3', lastName: 'l3', email: 'f3.l3@gmail.com'}
+                    { id: 1, firstName: "f1", lastName: "l1", email: "f1.l1@gmail.com"},
+                    { id: 2, firstName: "f2", lastName: "l2", email: "f2.l2@gmail.com"},
+                    { id: 3, firstName: "f3", lastName: "l3", email: "f3.l3@gmail.com"}
                 ]);
                 browser.refresh();
                 nameListPage.getDeleteBtnForItemWithIndex(1).click();

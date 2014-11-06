@@ -31,7 +31,7 @@
                     var text = "Are you sure you want to delete item " + item.id + "?";
                     ConfirmationDialogService.showConfirmationDialog(event, title, text).then(function() {
                         NameListPersistenceService.saveItems($scope.nameListModel.deleteItem(item)).then(function() {
-                            //NotificationService.showDeletedItemNotification(item);
+                            NotificationService.showDeletedItemNotification(item);
                         });
                     });
                 };
@@ -44,6 +44,6 @@
                             $scope.nameListModel.resetItems(items);
                         });
                     });
-                }
+                };
             }]);
 }());

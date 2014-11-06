@@ -1,4 +1,3 @@
-/* global jQuery, process, exports */
 (function () {
     
     "use strict";

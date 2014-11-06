@@ -1,0 +1,29 @@
+{
+	"undef": true,
+	"unused": true,
+	"bitwise": true,
+	"curly": true,
+	"eqnull": true,
+	"eqeqeq": true,
+	"quotmark": "double",
+	"trailing": true,
+	"maxdepth": 2,
+	"strict": true,
+	"globals": {
+		"window": true,
+		"angular": true,
+		"process": true,
+		"module": true,
+		"require": true,
+		"jasmine": true,
+		"describe": true,
+		"it": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"expect": true,
+		"spyOn": true,
+		"browser": true,
+		"element": true,
+		"by": true
+	}
+}
