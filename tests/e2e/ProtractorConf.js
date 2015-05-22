@@ -38,13 +38,12 @@
             defaultTimeoutInterval: 60000
         },
         onPrepare: function () {
-//            var disableNgAnimate = function () {
-//                angular.module("disableNgAnimate", []).run(function ($animate) {
-//                    console.log("$animate.enabled(false)");
-//                    $animate.enabled(false);
-//                });
-//            };
-//            browser.addMockModule("disableNgAnimate", disableNgAnimate);
+            var disableNgAnimate = function () {
+                angular.module("disableNgAnimate", []).run(function ($animate) {
+                    $animate.enabled(false);
+                });
+            };
+            browser.addMockModule("disableNgAnimate", disableNgAnimate);
         }
     };
 }());

@@ -24,6 +24,14 @@
 
     describe("NameListApp end-to-end tests", function() {
 
+        //beforeEach(function() {
+        //    browser.ignoreSynchronization = false;
+        //});
+
+        //beforeEach(function() {
+        //    $("body").allowAnimations(false);
+        //});
+
         afterEach(function() {
             _deletePersistedItems();
         });
@@ -34,59 +42,59 @@
 
         it("test1", function() {
             nameListPage.get();
-            expect(nameListPage.nameListItems.count()).toBe(5);
+            expect(nameListPage.nameListItems().count()).toBe(5);
         });
 
         it("test2", function() {
             nameListPage.get();
-            var item = nameListPage.nameListItems.get(2);
+            var item = nameListPage.nameListItems().get(2);
             expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("3");
             expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("Groucho");
             expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("Marx");
             expect(nameListPage.getItemElementByBinding(item, "item.email").getText()).toBe("groucho.marx@gmail.com");
         });
 
-        it("test3", function() {
+        iit("test3", function() {
             nameListPage.get();
-            nameListPage.addItemBtn.click();
-            expect(itemDialogPage.dialog.isDisplayed()).toBe(true);
+            nameListPage.addItemBtn().click();
+            expect(itemDialogPage.dialog().isDisplayed()).toBe(true);
         });
 
-        it("test4", function() {
+        iit("test4", function() {
             nameListPage.get();
-            nameListPage.resetBtn.click();
-            expect(confirmationDialogPage.dialog.isDisplayed()).toBe(true);
+            nameListPage.resetBtn().click();
+            expect(confirmationDialogPage.dialog().isDisplayed()).toBe(true);
         });
 
         it("test5", function() {
             nameListPage.get();
             nameListPage.getEditBtnForItemWithIndex(2).click();
-            expect(itemDialogPage.dialog.isDisplayed()).toBe(true);
+            expect(itemDialogPage.dialog().isDisplayed()).toBe(true);
         });
 
         it("test6", function() {
             nameListPage.get();
             nameListPage.getDeleteBtnForItemWithIndex(2).click();
-            expect(confirmationDialogPage.dialog.isDisplayed()).toBe(true);
+            expect(confirmationDialogPage.dialog().isDisplayed()).toBe(true);
         });
 
         it("test7", function() {
             nameListPage.get();
             nameListPage.getEditBtnForItemWithIndex(2).click();
-            expect(itemDialogPage.firstName.getAttribute("value")).toBe("Groucho");
-            expect(itemDialogPage.lastName.getAttribute("value")).toBe("Marx");
-            expect(itemDialogPage.email.getAttribute("value")).toBe("groucho.marx@gmail.com");
+            expect(itemDialogPage.firstName().getAttribute("value")).toBe("Groucho");
+            expect(itemDialogPage.lastName().getAttribute("value")).toBe("Marx");
+            expect(itemDialogPage.email().getAttribute("value")).toBe("groucho.marx@gmail.com");
         });
 
         it("test8", function() {
             nameListPage.get();
-            nameListPage.addItemBtn.click();
-            itemDialogPage.firstName.sendKeys("Karl");
-            itemDialogPage.lastName.sendKeys("Marx");
-            itemDialogPage.email.sendKeys("karl.marx@gmail.com");
-            itemDialogPage.okBtn.click();
-            expect(nameListPage.nameListItems.count()).toBe(6);
-            var item = nameListPage.nameListItems.get(5);
+            nameListPage.addItemBtn().click();
+            itemDialogPage.firstName().sendKeys("Karl");
+            itemDialogPage.lastName().sendKeys("Marx");
+            itemDialogPage.email().sendKeys("karl.marx@gmail.com");
+            itemDialogPage.okBtn().click();
+            expect(nameListPage.nameListItems().count()).toBe(6);
+            var item = nameListPage.nameListItems().last(5);
             expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("6");
             expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("Karl");
             expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("Marx");
@@ -96,8 +104,8 @@
         it("test9", function() {
             nameListPage.get();
             nameListPage.getDeleteBtnForItemWithIndex(2).click();
-            confirmationDialogPage.yesBtn.click();
-            var items = nameListPage.nameListItems;
+            confirmationDialogPage.yesBtn().click();
+            var items = nameListPage.nameListItems();
             expect(items.count()).toBe(4);
             expect(nameListPage.getItemElementByBinding(items.get(0), "item.id").getText()).toBe("1");
             expect(nameListPage.getItemElementByBinding(items.get(1), "item.id").getText()).toBe("2");
@@ -111,8 +119,8 @@
                 nameListPage.get();
                 _setPersistedItems([{ id: 1, firstName: "f1", lastName: "l1", email: "f1.l1@gmail.com"}]);
                 browser.refresh();
-                expect(nameListPage.nameListItems.count()).toBe(1);
-                var item = nameListPage.nameListItems.get(0);
+                expect(nameListPage.nameListItems().count()).toBe(1);
+                var item = nameListPage.nameListItems().first(0);
                 expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("1");
                 expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("f1");
                 expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("l1");
@@ -124,13 +132,13 @@
                 _setPersistedItems([]);
                 browser.refresh();
                 expect(_getPersistedItems()).toEqual([]);
-                nameListPage.addItemBtn.click();
-                itemDialogPage.firstName.sendKeys("Karl");
-                itemDialogPage.lastName.sendKeys("Marx");
-                itemDialogPage.email.sendKeys("karl.marx@gmail.com");
-                itemDialogPage.okBtn.click();
-                expect(nameListPage.nameListItems.count()).toBe(1);
-                var item = nameListPage.nameListItems.get(0);
+                nameListPage.addItemBtn().click();
+                itemDialogPage.firstName().sendKeys("Karl");
+                itemDialogPage.lastName().sendKeys("Marx");
+                itemDialogPage.email().sendKeys("karl.marx@gmail.com");
+                itemDialogPage.okBtn().click();
+                expect(nameListPage.nameListItems().count()).toBe(1);
+                var item = nameListPage.nameListItems().first(0);
                 expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("1");
                 expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("Karl");
                 expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("Marx");
@@ -153,9 +161,9 @@
                 ]);
                 browser.refresh();
                 nameListPage.getEditBtnForItemWithIndex(1).click();
-                itemDialogPage.firstName.sendKeys("-new");
-                itemDialogPage.okBtn.click();
-                nameListPage.nameListItems.then(function() {
+                itemDialogPage.firstName().sendKeys("-new");
+                itemDialogPage.okBtn().click();
+                nameListPage.nameListItems().then(function() {
                     _getPersistedItems().then(function(items) {
                         expect(items.length).toBe(3);
                         expect(items[0].firstName).toBe("f1");
@@ -174,8 +182,8 @@
                 ]);
                 browser.refresh();
                 nameListPage.getDeleteBtnForItemWithIndex(1).click();
-                confirmationDialogPage.yesBtn.click();
-                nameListPage.nameListItems.then(function() {
+                confirmationDialogPage.yesBtn().click();
+                nameListPage.nameListItems().then(function() {
                     _getPersistedItems().then(function(items) {
                         expect(items.length).toBe(2);
                         expect(items[0].id).toBe(1);

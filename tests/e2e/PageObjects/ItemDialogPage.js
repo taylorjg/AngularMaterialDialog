@@ -6,13 +6,27 @@
     "use strict";
 
     var ItemDialogPage = function() {
-        this.dialog = element(by.id("itemDialog"));
-        this.dialogTitle = element(by.model("itemDialogModel.title"));
-        this.firstName = element(by.model("itemDialogModel.item.firstName")).element(by.css("input"));
-        this.lastName = element(by.model("itemDialogModel.item.lastName")).element(by.css("input"));
-        this.email = element(by.model("itemDialogModel.item.email")).element(by.css("input"));
-        this.okBtn = element(by.id("okBtn"));
-        this.cancelBtn = element(by.id("cancelBtn"));
+        this.dialog = function() {
+            return $("#itemDialog");
+        }
+        this.dialogTitle = function() {
+            return element(by.model("itemDialogModel.title"));
+        }
+        this.firstName = function() {
+            return element(by.model("itemDialogModel.item.firstName")).$("input");
+        }
+        this.lastName = function() {
+            return element(by.model("itemDialogModel.item.lastName")).$("input");
+        }
+        this.email = function() {
+            return element(by.model("itemDialogModel.item.email")).$("input");
+        }
+        this.okBtn = function() {
+            return $("#okBtn");
+        }
+        this.cancelBtn = function() {
+            return $("#cancelBtn");
+        }
     };
 
     module.exports = ItemDialogPage;

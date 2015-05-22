@@ -6,9 +6,15 @@
     "use strict";
 
     var ConfirmationDialogPage = function() {
-        this.dialog = element(by.id("confirmationDialog"));
-        this.yesBtn = element(by.id("yesBtn"));
-        this.noBtn = element(by.id("noBtn"));
+        this.dialog = function() {
+            return $("#confirmationDialog");
+        }
+        this.yesBtn = function() {
+            return $("#yesBtn");
+        }
+        this.noBtn = function() {
+            return $("#noBtn");
+        }
     };
 
     module.exports = ConfirmationDialogPage;
