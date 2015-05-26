@@ -24,14 +24,6 @@
 
     describe("NameListApp end-to-end tests", function() {
 
-        //beforeEach(function() {
-        //    browser.ignoreSynchronization = false;
-        //});
-
-        //beforeEach(function() {
-        //    $("body").allowAnimations(false);
-        //});
-
         afterEach(function() {
             _deletePersistedItems();
         });
