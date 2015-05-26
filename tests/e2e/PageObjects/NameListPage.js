@@ -5,11 +5,9 @@
 
     "use strict";
 
-    var BASE_URL = "http://localhost:63342/AngularMaterialDialog/index.html";
-
     var NameListPage = function() {
         this.get = function () {
-            browser.get(BASE_URL);
+            browser.get("/AngularMaterialDialog/index.html");
         };
         this.nameListItems = function() {
             return element.all(by.repeater("item in nameListModel.items"));

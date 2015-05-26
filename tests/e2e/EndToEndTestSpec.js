@@ -54,13 +54,13 @@
             expect(nameListPage.getItemElementByBinding(item, "item.email").getText()).toBe("groucho.marx@gmail.com");
         });
 
-        iit("test3", function() {
+        it("test3", function() {
             nameListPage.get();
             nameListPage.addItemBtn().click();
             expect(itemDialogPage.dialog().isDisplayed()).toBe(true);
         });
 
-        iit("test4", function() {
+        it("test4", function() {
             nameListPage.get();
             nameListPage.resetBtn().click();
             expect(confirmationDialogPage.dialog().isDisplayed()).toBe(true);
@@ -94,7 +94,7 @@
             itemDialogPage.email().sendKeys("karl.marx@gmail.com");
             itemDialogPage.okBtn().click();
             expect(nameListPage.nameListItems().count()).toBe(6);
-            var item = nameListPage.nameListItems().last(5);
+            var item = nameListPage.nameListItems().last();
             expect(nameListPage.getItemElementByBinding(item, "item.id").getText()).toBe("6");
             expect(nameListPage.getItemElementByBinding(item, "item.firstName").getText()).toBe("Karl");
             expect(nameListPage.getItemElementByBinding(item, "item.lastName").getText()).toBe("Marx");

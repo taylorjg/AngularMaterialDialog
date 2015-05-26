@@ -13,13 +13,13 @@
             return element(by.model("itemDialogModel.title"));
         }
         this.firstName = function() {
-            return element(by.model("itemDialogModel.item.firstName")).$("input");
+            return element(by.model("itemDialogModel.item.firstName"));
         }
         this.lastName = function() {
-            return element(by.model("itemDialogModel.item.lastName")).$("input");
+            return element(by.model("itemDialogModel.item.lastName"));
         }
         this.email = function() {
-            return element(by.model("itemDialogModel.item.email")).$("input");
+            return element(by.model("itemDialogModel.item.email"));
         }
         this.okBtn = function() {
             return $("#okBtn");
