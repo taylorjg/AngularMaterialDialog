@@ -25,7 +25,7 @@
 
             var actual;
 
-            spyOn(_store, "get").andCallFake(function() {
+            spyOn(_store, "get").and.callFake(function() {
                 return null;
             });
 
@@ -47,7 +47,7 @@
 
             var actual;
 
-            spyOn(_store, "get").andCallFake(function() {
+            spyOn(_store, "get").and.callFake(function() {
                 return [
                     { id: 99, firstName: "FFF", lastName: "LLL", email: "EEE@gmail.com" }
                 ];
